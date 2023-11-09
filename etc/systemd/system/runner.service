@@ -1,0 +1,14 @@
+[Unit]
+Description=BGG Library Discord Reporter
+After=network.target
+StartLimitIntervalSec=0
+Wants=runner.timer
+[Service]
+EnvironmentFile=/home/tofarley/.env
+WorkingDirectory=/home/tofarley/bgg-library
+Type=simple
+User=tofarley
+ExecStart=/usr/bin/env python /home/tofarley/bgg-library/runner.py
+
+[Install]
+WantedBy=multi-user.target

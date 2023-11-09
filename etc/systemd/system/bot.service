@@ -1,0 +1,15 @@
+[Unit]
+Description=BGG Library Discord Bot
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+EnvironmentFile=/home/tofarley/.env
+WorkingDirectory=/home/tofarley/bgg-library
+Type=simple
+Restart=on-failure
+RestartSec=1
+User=tofarley
+ExecStart=/usr/bin/env python /home/tofarley/bgg-library/bot.py
+
+[Install]
+WantedBy=multi-user.target
