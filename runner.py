@@ -61,8 +61,9 @@ client = discord.Client(command_prefix='!',intents=intents)
 
 @client.event
 async def on_ready():
-  
-  channel = client.get_channel(1092443478060974200)
+  CHANNEL_ID = os.getenv('DISCORD_CHANNEL')
+  channel = client.get_channel(CHANNEL_ID)
+  #channel = client.get_channel(1092443478060974200)
   #await channel.send("testing systemd timers instead of cron jobs. Should trigger every minute.")
   myLoop.start(channel)
 
